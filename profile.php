@@ -12,7 +12,7 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 
 // Connect to the database (change database credentials as needed)
-$conn = new mysqli('localhost', 'root', '', 'user'); // Update your DB credentials
+$conn = new mysqli('localhost', 'lab10', '', 'user'); // Update your DB credentials
 
 // Check the connection to the database
 if ($conn->connect_error) {
@@ -47,7 +47,16 @@ $conn->close();
     <h1>Welcome, <?php echo $user['username']; ?>!</h1>
     <p>Email: <?php echo $user['email']; ?></p>
 
-    <!-- Link to edit profile -->
+    <!-- Edit Profile Link -->
     <a href="profile.php?edit=true">Edit Profile</a>
+
+    <?php if (isset($_GET['edit']) && $_GET['edit'] == 'true') { ?>
+        <h3>Edit Profile</h3>
+        <form action="update_profile.php" method="POST">
+            <label for="email">New Email:</label>
+            <input type="email" name="email" id="email" value="<?php echo $user['email']; ?>" required><br><br>
+            <input type="submit" value="Update Email">
+        </form>
+    <?php } ?>
 </body>
 </html>
