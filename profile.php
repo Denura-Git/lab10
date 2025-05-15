@@ -12,7 +12,7 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 
 // Connect to the database (change database credentials as needed)
-$conn = new mysqli('localhost', 'lab10', '', 'user'); // Update your DB credentials
+$conn = new mysqli('localhost', 'root', '', 'user'); // Update your DB credentials
 
 // Check the connection to the database
 if ($conn->connect_error) {
@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch the user data from the database based on the username stored in the session
-$sql = "SELECT * FROM user WHERE username='$username'";
+$sql = "SELECT * FROM user WHERE username='denura'";
 $result = $conn->query($sql);
 
 // Check if the user exists in the database

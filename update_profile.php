@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $new_email = $_POST['email'];
 
     // Create a database connection
-    $conn = new mysqli('localhost', 'lab10', '', 'user'); // Update with your DB credentials
+    $conn = new mysqli('localhost', 'root', '', 'user'); // Update with your DB credentials
 
     // Check the connection to the database
     if ($conn->connect_error) {
